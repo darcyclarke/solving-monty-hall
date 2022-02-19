@@ -5,7 +5,7 @@ function rand (max) {
   return Math.floor(Math.random() * max)
 }
 
-function game(id, change) {
+function game(change) {
   // define an array of doors
   const doors = Array.from(Array(num_doors).keys())
   // determine winning door
@@ -20,7 +20,6 @@ function game(id, change) {
     // otherwise, set the guess to a random house door
     guess = (house.indexOf(winner) >= 0) ? winner : house[rand(house.length)]
   }
-  // console.log(`${id}. Win: ${(guess === winner)} - Guess: ${guess} Winner: ${winner}`)
   // return whether or not the guessed door is the winner 
   return guess === winner
 }
@@ -28,7 +27,7 @@ function game(id, change) {
 function run (change) {
   const results = []
   for (let i=0;i < num_games;i++) {
-    results.push(game(i, change))
+    results.push(game(change))
   }
   const wins = results.filter(v => !!v).length
   const percent = parseFloat((wins / num_games) * 100).toFixed(2)
