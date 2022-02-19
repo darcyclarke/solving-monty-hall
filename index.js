@@ -1,4 +1,4 @@
-const num_games = 10000
+const num_games = 100000
 const num_doors = 3
 
 function rand (max) {
@@ -17,10 +17,12 @@ function game(change) {
   let house = doors.filter(v => v != guess)
   // console.log('-- game --')
   // console.log('initial guess:', guess)
-  // if the strategy was to switch doors, do so
-  if (change) {
-    // if the house had the winner, set the guess accordingly
-    // otherwise, set the guess to a random house door
+  // if the strategy was "random", flip a coin
+  change = (change === 'random') ? rand(2) : change
+  // if the strategy is to switch doors, do so    
+  if(change) {
+    // if the house had the winner, return that...
+    // otherwise, set guess to a random house door
     guess = (house.indexOf(winner) >= 0) ? winner : house[rand(house.length)]
   }
   // console.log('results:', winner, guess, house)
@@ -44,3 +46,6 @@ run(false)
 
 // run games with strategy to "switch"
 run(true)
+
+// run games with strategy that's "random"
+run('random')
