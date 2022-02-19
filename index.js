@@ -5,7 +5,6 @@ function rand (max) {
   return Math.floor(Math.random() * max)
 }
 
-
 function game(change) {
   // define an array of doors
   const doors = Array.from(Array(num_doors).keys())
