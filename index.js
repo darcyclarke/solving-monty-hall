@@ -14,8 +14,6 @@ function game(change) {
   let guess = rand(num_doors)
   // lock-in "house" doors
   let house = doors.filter(v => v != guess)
-  // console.log('-- game --')
-  // console.log('initial guess:', guess)
   // if the strategy was "random", flip a coin
   change = (change === 'random') ? rand(2) : change
   // if the strategy is to switch doors, do so    
@@ -24,7 +22,6 @@ function game(change) {
     // otherwise, set guess to a random house door
     guess = (house.indexOf(winner) >= 0) ? winner : house[rand(house.length)]
   }
-  // console.log('results:', winner, guess, house)
   // return whether or not the guessed door is the winner 
   return guess === winner
 }
