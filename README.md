@@ -53,3 +53,16 @@ run(true)
 // run games with strategy that's "random"
 run('random')
 ```
+
+### Example Output
+
+```bash
+$ node index.js
+
+-------- switch - false --------
+Games: 100000 Wins: 33276 Percentage: 33.28
+-------- switch - true --------
+Games: 100000 Wins: 66679 Percentage: 66.68
+-------- switch - random --------
+Games: 100000 Wins: 50010 Percentage: 50.01
+```
