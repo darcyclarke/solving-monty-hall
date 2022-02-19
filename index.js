@@ -1,9 +1,10 @@
-const num_games = 100000
+const num_games = 10000
 const num_doors = 3
 
 function rand (max) {
   return Math.floor(Math.random() * max)
 }
+
 
 function game(change) {
   // define an array of doors
@@ -14,12 +15,15 @@ function game(change) {
   let guess = rand(num_doors)
   // lock-in "house" doors
   let house = doors.filter(v => v != guess)
+  // console.log('-- game --')
+  // console.log('initial guess:', guess)
   // if the strategy was to switch doors, do so
   if (change) {
     // if the house had the winner, set the guess accordingly
     // otherwise, set the guess to a random house door
     guess = (house.indexOf(winner) >= 0) ? winner : house[rand(house.length)]
   }
+  // console.log('results:', winner, guess, house)
   // return whether or not the guessed door is the winner 
   return guess === winner
 }
